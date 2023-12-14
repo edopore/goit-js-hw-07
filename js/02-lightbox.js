@@ -9,7 +9,7 @@ const newImages = [...galleryItems]
       `
 <li class="gallery__item">
    <a class="gallery__link" href="${galleryItem.original}">
-      <img class="gallery__image" src="${galleryItem.preview}" alt="${galleryItem.description}" />
+      <img class="gallery__image" src="${galleryItem.preview}" alt="${galleryItem.description}" title="${galleryItem.description}"/>
    </a>
 </li>`
   )
@@ -18,8 +18,10 @@ const newImages = [...galleryItems]
 gallery.insertAdjacentHTML("beforeend", newImages);
 
 gallery = new SimpleLightbox(".gallery a");
-gallery.on("show.simplelightbox", function () {});
-
+gallery.on("show.simplelightbox", function () {
+  console.log(gallery.options);
+  gallery.options.CaptionDelay = 250;
+});
 gallery.on("error.simplelightbox", function (e) {
   console.log(e); // Some usefull information
 });
