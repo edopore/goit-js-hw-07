@@ -19,7 +19,6 @@ gallery.insertAdjacentHTML("beforeend", newImages);
 
 gallery = new SimpleLightbox(".gallery a");
 gallery.on("show.simplelightbox", function () {
-  console.log(gallery.options);
   gallery.options.CaptionDelay = 250;
 });
 gallery.on("error.simplelightbox", function (e) {
