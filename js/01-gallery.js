@@ -31,9 +31,10 @@ images.forEach((image) => {
     instance.show();
 
     document.addEventListener("keydown", (event) => {
-      if (event.code === "Escape") {
-        instance.close();
+      if (event.code !== "Escape" && instance.visible()) {
+        return;
       }
+      instance.close();
     });
   });
 });
